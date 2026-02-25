@@ -4,6 +4,7 @@ from datetime import date
 import calendar
 import math
 from collections import Counter
+import json
 
 def parse_date(date_str:str) -> date:
     try:
@@ -136,6 +137,7 @@ def get_exact_age(birthday:date) -> dict[str, int]:
 def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
+    parser.add_argument("--json", action="store_true", help="Output the facts in JSON format")
     args = parser.parse_args()
 
     print(f'Welcome to the birthday facts CLI!\n')
@@ -143,8 +145,15 @@ def main():
     birthday:date = args.birthday
     print(f"Your birthday is: {birthday}")
 
-    show_simple_facts(birthday)
-    show_math_facts(birthday)
+    if args.json:
+        combined_facts = {
+            "simple_facts": get_simple_facts(birthday),
+            "math_facts": get_math_facts(birthday)
+        }
+        print(json.dumps(combined_facts, indent=4))
+    else:
+        show_simple_facts(birthday)
+        show_math_facts(birthday)
 
 
 if __name__ == "__main__":
