@@ -12,19 +12,33 @@ def parse_date(date_str:str) -> date:
     except ValueError:
         raise argparse.ArgumentTypeError("Invalid date format. Expected: YYYY-MM-DD")
 
+def get_simple_facts(birthday: date):
+    weekday_of_birth = birthday.strftime("%A")
+    exact_age = get_exact_age(birthday)
+    leap_years_count = count_leap_years(birthday)
+    days_until_next_birthday = (next_birthday(birthday) - date.today()).days
+    return {
+        "weekday_of_birth": weekday_of_birth,
+        "exact_age": exact_age,
+        "leap_years_count": leap_years_count,
+        "days_until_next_birthday": days_until_next_birthday
+    }
+
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
 
-    weekday_of_birth = birthday.strftime("%A")
+    simple_facts = get_simple_facts(birthday)
+
+    weekday_of_birth = simple_facts["weekday_of_birth"]
     print(f'You were born on a {weekday_of_birth}.')
     
-    age = get_exact_age(birthday)
+    age = simple_facts["exact_age"]
     print(f'You are {age["years"]} years, {age["months"]} months, and {age["days"]} days old.')
 
-    leap_years_count = count_leap_years(birthday)
+    leap_years_count = simple_facts["leap_years_count"]
     print(f'There were {leap_years_count} leap years since your birth.')
 
-    days_until_next_birthday = (next_birthday(birthday) - date.today()).days
+    days_until_next_birthday = simple_facts["days_until_next_birthday"]
     print(f'Days until your next birthday: {days_until_next_birthday} days')
 
 
