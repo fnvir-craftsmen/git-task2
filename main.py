@@ -47,11 +47,15 @@ def get_math_facts(birthday: date):
     sum_of_birthdate_components = sum(birthdate_components)
     product_of_birthdate_components = math.prod(birthdate_components)
 
+    gcd_of_birthdate_components = math.gcd(*birthdate_components)
+    lcm_of_birthdate_components = math.lcm(*birthdate_components)
+
     return {
         "prime_info": prime_info,
         "sum_of_birthdate_components": sum_of_birthdate_components,
         "product_of_birthdate_components": product_of_birthdate_components,
-
+        "gcd_of_birthdate_components": gcd_of_birthdate_components,
+        "lcm_of_birthdate_components": lcm_of_birthdate_components
     }
 
 def show_math_facts(birthday: date):
@@ -70,6 +74,10 @@ def show_math_facts(birthday: date):
     print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')
     
     print(f'The product of your birth year, month, and day is: {math_facts["product_of_birthdate_components"]}')
+
+    print(f'The GCD of your birth year, month, and day is: {math_facts["gcd_of_birthdate_components"]}')
+
+    print(f'The LCM of your birth year, month, and day is: {math_facts["lcm_of_birthdate_components"]}')
     
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
