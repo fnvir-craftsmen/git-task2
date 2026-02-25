@@ -4,6 +4,8 @@ from datetime import date
 import calendar
 import math
 from collections import Counter
+import json
+import random
 
 def parse_date(date_str:str) -> date:
     try:
@@ -66,9 +68,33 @@ def get_math_facts(birthday: date):
         "most_occuring_digit": most_occuring_digit
     }
 
+def get_month_facts(birthday: date):
+    with open('months_fact.json', 'r') as f:
+        months_facts = json.load(f)
+        month = birthday.month
+        return months_facts[str(month)]
+
+def get_a_random_fact():
+    with open('random_facts.json', 'r') as f:
+        random_facts = json.load(f)
+        return random.choice(random_facts)
+
+def show_random_fact():
+    print()
+    print(f"{Colors.YELLOW}A random fact for you:{Colors.ENDC}")
+    print(get_a_random_fact())
+
+def show_month_facts(birthday: date):
+    month_facts = get_month_facts(birthday)
+    print() #newline to add top space
+    print(f"{Colors.YELLOW}Month facts about your birth month ({month_facts['name']}):{Colors.ENDC}")
+    print(f'Season: {month_facts["season"]}')
+    print(f'Fun fact: {month_facts["fun_fact"]}')
+    print(f'A famous event in your birth month: {month_facts["famous_event"]}')
+
 def show_math_facts(birthday: date):
     print('\n\n')
-    print("Math facts about your birthday:\n")
+    print(f"{Colors.YELLOW}Math facts about your birthday:{Colors.ENDC}\n")
 
     math_facts = get_math_facts(birthday)
 
@@ -90,7 +116,7 @@ def show_math_facts(birthday: date):
     print(f'The most occuring digit in your birth year, month, and day is: {math_facts["most_occuring_digit"]}')
 
 def show_simple_facts(birthday:date):
-    print("Some facts about your birthday:")
+    print(f"{Colors.YELLOW}Some facts about your birthday:{Colors.ENDC}")
 
     simple_facts = get_simple_facts(birthday)
 
@@ -136,16 +162,42 @@ def get_exact_age(birthday:date) -> dict[str, int]:
 def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
+    parser.add_argument("--json", action="store_true", help="Output the facts in JSON format")
+    parser.add_argument("--export", action="store_true", help="Export the facts into a json file called output.json")
     args = parser.parse_args()
 
-    print(f'Welcome to the birthday facts CLI!\n')
+    print(f'{Colors.GREEN}Welcome to the birthday facts CLI!{Colors.ENDC}\n')
     
     birthday:date = args.birthday
-    print(f"Your birthday is: {birthday}")
+    print(f"{Colors.BLUE}Your birthday is: {birthday}{Colors.ENDC}")
 
-    show_simple_facts(birthday)
-    show_math_facts(birthday)
+    if args.json or args.export:
+        combined_facts = {
+            "simple_facts": get_simple_facts(birthday),
+            "math_facts": get_math_facts(birthday),
+            "month_facts": get_month_facts(birthday),
+            "random_fact": get_a_random_fact()
+        }
 
+        if args.export:
+            with open('output.json', 'w') as f:
+                json.dump(combined_facts, f, indent=4)
+            print(f"{Colors.GREEN}Facts exported to output.json{Colors.ENDC}")
+        else:
+            print(json.dumps(combined_facts, indent=4))
+    else:
+        show_simple_facts(birthday)
+        show_math_facts(birthday)
+        show_month_facts(birthday)
+        show_random_fact()
+
+
+class Colors:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    BLUE = '\033[94m'
+    YELLOW = '\033[93m'
+    ENDC  = '\033[0m'
 
 if __name__ == "__main__":
     main()
