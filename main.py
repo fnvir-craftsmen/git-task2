@@ -2,6 +2,7 @@ import argparse
 from datetime import datetime, timedelta
 from datetime import date
 import calendar
+import math
 
 def parse_date(date_str:str) -> date:
     try:
@@ -44,10 +45,13 @@ def get_math_facts(birthday: date):
 
     birthdate_components = birthday.timetuple()[:3] # year, month, day
     sum_of_birthdate_components = sum(birthdate_components)
+    product_of_birthdate_components = math.prod(birthdate_components)
 
     return {
         "prime_info": prime_info,
-        "sum_of_birthdate_components": sum_of_birthdate_components
+        "sum_of_birthdate_components": sum_of_birthdate_components,
+        "product_of_birthdate_components": product_of_birthdate_components,
+
     }
 
 def show_math_facts(birthday: date):
@@ -63,7 +67,9 @@ def show_math_facts(birthday: date):
     else:
         print("No primes in your birth day/month/year.")
 
-    print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')   
+    print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')
+    
+    print(f'The product of your birth year, month, and day is: {math_facts["product_of_birthdate_components"]}')
     
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
