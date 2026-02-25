@@ -21,6 +21,17 @@ def show_simple_facts(birthday:date):
     leap_years_count = count_leap_years(birthday)
     print(f'There were {leap_years_count} leap years since your birth.')
 
+    days_until_next_birthday = (next_birthday(birthday) - date.today()).days
+    print(f'Days until your next birthday: {days_until_next_birthday} days')
+
+
+def next_birthday(birthday: date) -> date:
+    if birthday.day == 29 and birthday.month == 2:
+        this_year = date.today().year
+        next_leap_year = next(filter(calendar.isleap, (this_year + i for i in range(1,5))))
+        return date(next_leap_year, birthday.month, birthday.day)
+    return date(date.today().year+1, birthday.month, birthday.day)
+
 
 def count_leap_years(birthday:date) -> int:
     today = date.today()
