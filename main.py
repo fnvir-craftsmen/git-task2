@@ -163,6 +163,7 @@ def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
     parser.add_argument("--json", action="store_true", help="Output the facts in JSON format")
+    parser.add_argument("--export", action="store_true", help="Export the facts into a json file called output.json")
     args = parser.parse_args()
 
     print(f'{Colors.GREEN}Welcome to the birthday facts CLI!{Colors.ENDC}\n')
@@ -170,14 +171,20 @@ def main():
     birthday:date = args.birthday
     print(f"{Colors.BLUE}Your birthday is: {birthday}{Colors.ENDC}")
 
-    if args.json:
+    if args.json or args.export:
         combined_facts = {
             "simple_facts": get_simple_facts(birthday),
             "math_facts": get_math_facts(birthday),
             "month_facts": get_month_facts(birthday),
             "random_fact": get_a_random_fact()
         }
-        print(json.dumps(combined_facts, indent=4))
+
+        if args.export:
+            with open('output.json', 'w') as f:
+                json.dump(combined_facts, f, indent=4)
+            print(f"{Colors.GREEN}Facts exported to output.json{Colors.ENDC}")
+        else:
+            print(json.dumps(combined_facts, indent=4))
     else:
         show_simple_facts(birthday)
         show_math_facts(birthday)
