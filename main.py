@@ -1,6 +1,7 @@
 import argparse
 from datetime import datetime, timedelta
 from datetime import date
+import calendar
 
 def parse_date(date:str) -> date:
     try:
@@ -16,6 +17,14 @@ def show_simple_facts(birthday:date):
     
     age = get_exact_age(birthday)
     print(f'You are {age["years"]} years, {age["months"]} months, and {age["days"]} days old.')
+
+    leap_years_count = count_leap_years(birthday)
+    print(f'There were {leap_years_count} leap years since your birth.')
+
+
+def count_leap_years(birthday:date) -> int:
+    today = date.today()
+    return sum(1 for y in range(birthday.year, today.year + 1) if calendar.isleap(y) and birthday <= date(y, 2, 29) <= today)
 
 def get_exact_age(birthday:date) -> dict[str, int]:
     today = date.today()
