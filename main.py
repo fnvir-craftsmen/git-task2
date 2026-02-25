@@ -2,6 +2,8 @@ import argparse
 from datetime import datetime, timedelta
 from datetime import date
 import calendar
+import math
+from collections import Counter
 
 def parse_date(date_str:str) -> date:
     try:
@@ -23,6 +25,69 @@ def get_simple_facts(birthday: date):
         "leap_years_count": leap_years_count,
         "days_until_next_birthday": days_until_next_birthday
     }
+
+def get_math_facts(birthday: date):
+    def is_prime(n: int) -> bool:
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def find_any_prime_in_date(date: datetime.date):
+        d = {'year': date.year, 'month': date.month, 'day': date.day}
+        for k, v in d.items():
+            if is_prime(v):
+                return (k, v)
+        return None
+    
+    def get_most_occuring_digit(date: datetime.date):
+        digits = str(date).replace('-', '')
+        return Counter(digits).most_common(1)[0][0]
+
+    prime_info = find_any_prime_in_date(birthday)
+
+    birthdate_components = birthday.timetuple()[:3] # year, month, day
+    sum_of_birthdate_components = sum(birthdate_components)
+    product_of_birthdate_components = math.prod(birthdate_components)
+
+    gcd_of_birthdate_components = math.gcd(*birthdate_components)
+    lcm_of_birthdate_components = math.lcm(*birthdate_components)
+
+    most_occuring_digit = get_most_occuring_digit(birthday)
+
+    return {
+        "prime_info": prime_info,
+        "sum_of_birthdate_components": sum_of_birthdate_components,
+        "product_of_birthdate_components": product_of_birthdate_components,
+        "gcd_of_birthdate_components": gcd_of_birthdate_components,
+        "lcm_of_birthdate_components": lcm_of_birthdate_components,
+        "most_occuring_digit": most_occuring_digit
+    }
+
+def show_math_facts(birthday: date):
+    print('\n\n')
+    print("Math facts about your birthday:\n")
+
+    math_facts = get_math_facts(birthday)
+
+    prime_info = math_facts["prime_info"]
+    if prime_info is not None:
+        unit, value = prime_info    
+        print(f'The {unit} of your birthday is a prime number: {value}.')
+    else:
+        print("No primes in your birth day/month/year.")
+
+    print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')
+    
+    print(f'The product of your birth year, month, and day is: {math_facts["product_of_birthdate_components"]}')
+
+    print(f'The GCD of your birth year, month, and day is: {math_facts["gcd_of_birthdate_components"]}')
+
+    print(f'The LCM of your birth year, month, and day is: {math_facts["lcm_of_birthdate_components"]}')
+    
+    print(f'The most occuring digit in your birth year, month, and day is: {math_facts["most_occuring_digit"]}')
 
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
@@ -72,11 +137,14 @@ def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
     args = parser.parse_args()
+
+    print(f'Welcome to the birthday facts CLI!\n')
     
     birthday:date = args.birthday
     print(f"Your birthday is: {birthday}")
 
     show_simple_facts(birthday)
+    show_math_facts(birthday)
 
 
 if __name__ == "__main__":
