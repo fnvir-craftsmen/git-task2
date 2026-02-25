@@ -24,6 +24,47 @@ def get_simple_facts(birthday: date):
         "days_until_next_birthday": days_until_next_birthday
     }
 
+def get_math_facts(birthday: date):
+    def is_prime(n: int) -> bool:
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def find_any_prime_in_date(date: datetime.date):
+        d = {'year': date.year, 'month': date.month, 'day': date.day}
+        for k, v in d.items():
+            if is_prime(v):
+                return (k, v)
+        return None
+
+    prime_info = find_any_prime_in_date(birthday)
+
+    birthdate_components = birthday.timetuple()[:3] # year, month, day
+    sum_of_birthdate_components = sum(birthdate_components)
+
+    return {
+        "prime_info": prime_info,
+        "sum_of_birthdate_components": sum_of_birthdate_components
+    }
+
+def show_math_facts(birthday: date):
+    print('\n\n')
+    print("Math facts about your birthday:\n")
+
+    math_facts = get_math_facts(birthday)
+
+    prime_info = math_facts["prime_info"]
+    if prime_info is not None:
+        unit, value = prime_info    
+        print(f'The {unit} of your birthday is a prime number: {value}.')
+    else:
+        print("No primes in your birth day/month/year.")
+
+    print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')   
+    
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
 
@@ -77,6 +118,7 @@ def main():
     print(f"Your birthday is: {birthday}")
 
     show_simple_facts(birthday)
+    show_math_facts(birthday)
 
 
 if __name__ == "__main__":
