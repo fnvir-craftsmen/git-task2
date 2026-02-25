@@ -67,6 +67,20 @@ def get_math_facts(birthday: date):
         "most_occuring_digit": most_occuring_digit
     }
 
+def get_month_facts(birthday: date):
+    with open('months_fact.json', 'r') as f:
+        months_facts = json.load(f)
+        month = birthday.month
+        return months_facts[str(month)]
+
+def show_month_facts(birthday: date):
+    month_facts = get_month_facts(birthday)
+    print() #newline to add top space
+    print(f"{Colors.YELLOW}Month facts about your birth month ({month_facts['name']}):{Colors.ENDC}")
+    print(f'Season: {month_facts["season"]}')
+    print(f'Fun fact: {month_facts["fun_fact"]}')
+    print(f'A famous event in your birth month: {month_facts["famous_event"]}')
+
 def show_math_facts(birthday: date):
     print('\n\n')
     print(f"{Colors.YELLOW}Math facts about your birthday:{Colors.ENDC}\n")
@@ -148,12 +162,14 @@ def main():
     if args.json:
         combined_facts = {
             "simple_facts": get_simple_facts(birthday),
-            "math_facts": get_math_facts(birthday)
+            "math_facts": get_math_facts(birthday),
+            "month_facts": get_month_facts(birthday)
         }
         print(json.dumps(combined_facts, indent=4))
     else:
         show_simple_facts(birthday)
         show_math_facts(birthday)
+        show_month_facts(birthday)
 
 
 class Colors:
