@@ -1,0 +1,74 @@
+{
+  "1": {
+    "name": "January",
+    "season": "Winter (Northern Hemisphere)",
+    "fun_fact": "January is named after Janus, the Roman god of beginnings and transitions.",
+    "famous_event": "The first iPhone was announced in January 2007."
+  },
+  "2": {
+    "name": "February",
+    "season": "Winter (Northern Hemisphere)",
+    "fun_fact": "February is the only month that can pass without a full moon.",
+    "famous_event": "Valentine's Day is celebrated worldwide on February 14."
+  },
+  "3": {
+    "name": "March",
+    "season": "Spring begins (Northern Hemisphere)",
+    "fun_fact": "March was the first month of the year in the ancient Roman calendar.",
+    "famous_event": "The World Wide Web became publicly available in March 1991."
+  },
+  "4": {
+    "name": "April",
+    "season": "Spring (Northern Hemisphere)",
+    "fun_fact": "The name April may come from a Latin word meaning 'to open', like flowers in spring.",
+    "famous_event": "The Titanic sank in April 1912."
+  },
+  "5": {
+    "name": "May",
+    "season": "Spring (Northern Hemisphere)",
+    "fun_fact": "May is named after Maia, a Roman goddess of growth.",
+    "famous_event": "The first successful airplane flight across the Atlantic occurred in May 1927."
+  },
+  "6": {
+    "name": "June",
+    "season": "Summer begins (Northern Hemisphere)",
+    "fun_fact": "June is named after Juno, the Roman goddess of marriage.",
+    "famous_event": "The first modern Olympic Games opened in June 1896."
+  },
+  "7": {
+    "name": "July",
+    "season": "Summer (Northern Hemisphere)",
+    "fun_fact": "July was named in honor of Julius Caesar.",
+    "famous_event": "Humans first landed on the Moon in July 1969."
+  },
+  "8": {
+    "name": "August",
+    "season": "Summer (Northern Hemisphere)",
+    "fun_fact": "August was named after the Roman emperor Augustus.",
+    "famous_event": "The first photograph of Earth from space was taken in August 1946."
+  },
+  "9": {
+    "name": "September",
+    "season": "Autumn begins (Northern Hemisphere)",
+    "fun_fact": "September's name comes from the Latin word for seven, as it was once the seventh month.",
+    "famous_event": "Google was founded in September 1998."
+  },
+  "10": {
+    "name": "October",
+    "season": "Autumn (Northern Hemisphere)",
+    "fun_fact": "October's name comes from the Latin word for eight.",
+    "famous_event": "The first manned spaceflight occurred in October 1961."
+  },
+  "11": {
+    "name": "November",
+    "season": "Autumn (Northern Hemisphere)",
+    "fun_fact": "November's name comes from the Latin word for nine.",
+    "famous_event": "The Berlin Wall fell in November 1989."
+  },
+  "12": {
+    "name": "December",
+    "season": "Winter begins (Northern Hemisphere)",
+    "fun_fact": "December's name comes from the Latin word for ten.",
+    "famous_event": "The Wright brothers made their first powered flight in December 1903."
+  }
+}
