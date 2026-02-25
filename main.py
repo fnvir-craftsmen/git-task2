@@ -3,9 +3,12 @@ from datetime import datetime, timedelta
 from datetime import date
 import calendar
 
-def parse_date(date:str) -> date:
+def parse_date(date_str:str) -> date:
     try:
-        return datetime.strptime(date, "%Y-%m-%d").date()
+        d = datetime.strptime(date_str, "%Y-%m-%d").date()
+        if d > date.today():
+            raise argparse.ArgumentTypeError("You aren't event born yet! Birthdate must be in the past")
+        return d
     except ValueError:
         raise argparse.ArgumentTypeError("Invalid date format. Expected: YYYY-MM-DD")
 
