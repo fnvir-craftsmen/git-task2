@@ -12,6 +12,9 @@ A simple python based CLI that gives fun facts after prompting the user for thei
     ```
 
 ### CLI Arguments
+Run the program with `--help` to see all available CLI options. But, just for convenience:
 - `--birthday` (required): birthday in ISO format.
 - `-b`: short form for `--birthday`.
 - `--help`: show help message and exit.
+- `--json`: show the output as json
+- `--export`: export the output json into a file called output.txt in the same dir
