@@ -1,5 +1,5 @@
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 from datetime import date
 
 def parse_date(date:str) -> date:
@@ -8,6 +8,29 @@ def parse_date(date:str) -> date:
     except ValueError:
         raise argparse.ArgumentTypeError("Invalid date format. Expected: YYYY-MM-DD")
 
+def show_simple_facts(birthday:date):
+    print("Some facts about your birthday:")
+
+    weekday_of_birth = birthday.strftime("%A")
+    print(f'You were born on a {weekday_of_birth}.')
+    
+    age = get_exact_age(birthday)
+    print(f'You are {age["years"]} years, {age["months"]} months, and {age["days"]} days old.')
+
+def get_exact_age(birthday:date) -> dict[str, int]:
+    today = date.today()
+    years = today.year - birthday.year
+    months = today.month - birthday.month
+    days = today.day - birthday.day
+    if days < 0:
+        months -= 1
+        prev_month_end = date(today.year, today.month, 1) - timedelta(days=1)
+        days += prev_month_end.day
+    if months < 0:
+        years -= 1
+        months += 12
+    return {"years": years, "months": months, "days": days}
+
 def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
@@ -15,6 +38,8 @@ def main():
     
     birthday:date = args.birthday
     print(f"Your birthday is: {birthday}")
+
+    show_simple_facts(birthday)
 
 
 if __name__ == "__main__":
