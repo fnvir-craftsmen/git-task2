@@ -127,6 +127,8 @@ def main():
     parser = argparse.ArgumentParser(description="Simple CLI tool to show general fun facts based on birthday.")
     parser.add_argument("-b", "--birthday", required=True, type=parse_date, help="Your birthday in the format YYYY-MM-DD")
     args = parser.parse_args()
+
+    print(f'Welcome to the birthday facts CLI!\n')
     
     birthday:date = args.birthday
     print(f"Your birthday is: {birthday}")
