@@ -69,7 +69,7 @@ def get_math_facts(birthday: date):
 
 def show_math_facts(birthday: date):
     print('\n\n')
-    print("Math facts about your birthday:\n")
+    print(f"{Colors.YELLOW}Math facts about your birthday:{Colors.ENDC}\n")
 
     math_facts = get_math_facts(birthday)
 
@@ -91,7 +91,7 @@ def show_math_facts(birthday: date):
     print(f'The most occuring digit in your birth year, month, and day is: {math_facts["most_occuring_digit"]}')
 
 def show_simple_facts(birthday:date):
-    print("Some facts about your birthday:")
+    print(f"{Colors.YELLOW}Some facts about your birthday:{Colors.ENDC}")
 
     simple_facts = get_simple_facts(birthday)
 
@@ -140,10 +140,10 @@ def main():
     parser.add_argument("--json", action="store_true", help="Output the facts in JSON format")
     args = parser.parse_args()
 
-    print(f'Welcome to the birthday facts CLI!\n')
+    print(f'{Colors.GREEN}Welcome to the birthday facts CLI!{Colors.ENDC}\n')
     
     birthday:date = args.birthday
-    print(f"Your birthday is: {birthday}")
+    print(f"{Colors.BLUE}Your birthday is: {birthday}{Colors.ENDC}")
 
     if args.json:
         combined_facts = {
@@ -155,6 +155,13 @@ def main():
         show_simple_facts(birthday)
         show_math_facts(birthday)
 
+
+class Colors:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    BLUE = '\033[94m'
+    YELLOW = '\033[93m'
+    ENDC  = '\033[0m'
 
 if __name__ == "__main__":
     main()
