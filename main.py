@@ -5,6 +5,7 @@ import calendar
 import math
 from collections import Counter
 import json
+import random
 
 def parse_date(date_str:str) -> date:
     try:
@@ -72,6 +73,16 @@ def get_month_facts(birthday: date):
         months_facts = json.load(f)
         month = birthday.month
         return months_facts[str(month)]
+
+def get_a_random_fact():
+    with open('random_facts.json', 'r') as f:
+        random_facts = json.load(f)
+        return random.choice(random_facts)
+
+def show_random_fact():
+    print()
+    print(f"{Colors.YELLOW}A random fact for you:{Colors.ENDC}")
+    print(get_a_random_fact())
 
 def show_month_facts(birthday: date):
     month_facts = get_month_facts(birthday)
@@ -163,13 +174,15 @@ def main():
         combined_facts = {
             "simple_facts": get_simple_facts(birthday),
             "math_facts": get_math_facts(birthday),
-            "month_facts": get_month_facts(birthday)
+            "month_facts": get_month_facts(birthday),
+            "random_fact": get_a_random_fact()
         }
         print(json.dumps(combined_facts, indent=4))
     else:
         show_simple_facts(birthday)
         show_math_facts(birthday)
         show_month_facts(birthday)
+        show_random_fact()
 
 
 class Colors:
