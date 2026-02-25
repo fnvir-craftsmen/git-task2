@@ -41,8 +41,13 @@ def get_math_facts(birthday: date):
         return None
 
     prime_info = find_any_prime_in_date(birthday)
+
+    birthdate_components = birthday.timetuple()[:3] # year, month, day
+    sum_of_birthdate_components = sum(birthdate_components)
+
     return {
-        "prime_info": prime_info
+        "prime_info": prime_info,
+        "sum_of_birthdate_components": sum_of_birthdate_components
     }
 
 def show_math_facts(birthday: date):
@@ -57,6 +62,8 @@ def show_math_facts(birthday: date):
         print(f'The {unit} of your birthday is a prime number: {value}.')
     else:
         print("No primes in your birth day/month/year.")
+
+    print(f'The sum of your birth year, month, and day is: {math_facts["sum_of_birthdate_components"]}')   
     
 def show_simple_facts(birthday:date):
     print("Some facts about your birthday:")
