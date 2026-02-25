@@ -1,0 +1,140 @@
+82b33db (HEAD -> recover-deleted-branch) HEAD@{0}: commit: restore deleted commits and add new commit
+521b74d HEAD@{1}: reset: moving to 521b74d
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{2}: checkout: moving from main to recover-deleted-branch
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{3}: checkout: moving from deleted-branch to main
+3722577 HEAD@{4}: reset: moving to HEAD~2
+521b74d HEAD@{5}: commit: add new mock commit
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{6}: checkout: moving from branch3 to deleted-branch
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{7}: checkout: moving from branch-to-delete to branch3
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{8}: checkout: moving from main to branch-to-delete
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{9}: checkout: moving from branch-to-delete to main
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{10}: checkout: moving from main to branch-to-delete
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{11}: checkout: moving from branch-to-delete to main
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{12}: checkout: moving from branch3 to branch-to-delete
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{13}: checkout: moving from original_branch3 to branch3
+6b56baa (origin/original_branch3, original_branch3) HEAD@{14}: rebase (finish): returning to refs/heads/original_branch3
+6b56baa (origin/original_branch3, original_branch3) HEAD@{15}: rebase (pick): Update README.md
+91dae03 HEAD@{16}: rebase (pick): add option to export facts to a json file
+99180f6 HEAD@{17}: rebase (pick): feat: display a random fact
+aed5390 HEAD@{18}: rebase (pick): feat: show birth month facts
+9a1aae7 HEAD@{19}: rebase (pick): add colored text to heading messages
+630e1f9 HEAD@{20}: rebase (pick): add cli argument to show output as json
+83cd33b (origin/original_branch2, original_branch2) HEAD@{21}: rebase (start): checkout original_branch2
+6972e7e HEAD@{22}: checkout: moving from original_branch2 to original_branch3
+83cd33b (origin/original_branch2, original_branch2) HEAD@{23}: checkout: moving from original_branch3 to original_branch2
+6972e7e HEAD@{24}: reset: moving to 6972e7e
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{25}: reset: moving to abb7408
+6972e7e HEAD@{26}: checkout: moving from original_branch2 to original_branch3
+83cd33b (origin/original_branch2, original_branch2) HEAD@{27}: reset: moving to 83cd33b
+5846b20 HEAD@{28}: reset: moving to 5846b20
+83cd33b (origin/original_branch2, original_branch2) HEAD@{29}: checkout: moving from branch2 to original_branch2
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{30}: checkout: moving from new_branch2 to branch2
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{31}: checkout: moving from original_branch2 to new_branch2
+83cd33b (origin/original_branch2, original_branch2) HEAD@{32}: rebase (finish): returning to refs/heads/original_branch2
+83cd33b (origin/original_branch2, original_branch2) HEAD@{33}: rebase (fixup): show most occuring digit in birthdate as math fact
+ed5a193 HEAD@{34}: rebase (start): checkout HEAD~2
+5846b20 HEAD@{35}: rebase (finish): returning to refs/heads/original_branch2
+5846b20 HEAD@{36}: rebase (start): checkout HEAD~1
+5846b20 HEAD@{37}: rebase (finish): returning to refs/heads/original_branch2
+5846b20 HEAD@{38}: rebase (start): checkout ed5a1935e8efa56f2127b9c64b37e05ce7f6c637
+5846b20 HEAD@{39}: checkout: moving from original_branch3 to original_branch2
+6972e7e HEAD@{40}: checkout: moving from original_branch2 to original_branch3
+5846b20 HEAD@{41}: checkout: moving from original_branch1 to original_branch2
+08815cb (origin/original_branch1, original_branch1) HEAD@{42}: checkout: moving from branch1 to original_branch1
+f51ce3a (origin/new_branch1, origin/branch1, new_branch1, branch1) HEAD@{43}: checkout: moving from new_branch2 to branch1
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{44}: checkout: moving from new_branch1 to new_branch2
+f51ce3a (origin/new_branch1, origin/branch1, new_branch1, branch1) HEAD@{45}: checkout: moving from branch3 to new_branch1
+6972e7e HEAD@{46}: checkout: moving from main to branch3
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{47}: checkout: moving from branch3 to main
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{48}: checkout: moving from branch2 to branch3
+5846b20 HEAD@{49}: checkout: moving from branch3 to branch2
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{50}: checkout: moving from branch1 to branch3
+08815cb (origin/original_branch1, original_branch1) HEAD@{51}: checkout: moving from branch3 to branch1
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{52}: checkout: moving from branch2 to branch3
+5846b20 HEAD@{53}: checkout: moving from branch1 to branch2
+08815cb (origin/original_branch1, original_branch1) HEAD@{54}: checkout: moving from branch2 to branch1
+5846b20 HEAD@{55}: checkout: moving from branch3 to branch2
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{56}: checkout: moving from branch1 to branch3
+08815cb (origin/original_branch1, original_branch1) HEAD@{57}: checkout: moving from branch3 to branch1
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{58}: rebase (finish): returning to refs/heads/branch3
+abb7408 (origin/branch3, new_branch3, branch3) HEAD@{59}: rebase (pick): Update README.md
+3722577 HEAD@{60}: rebase (pick): add option to export facts to a json file
+7802a45 HEAD@{61}: rebase (pick): feat: display a random fact
+0904777 HEAD@{62}: rebase (pick): feat: show birth month facts
+3f144bc HEAD@{63}: rebase (pick): add colored text to heading messages
+67553de HEAD@{64}: rebase (pick): add cli argument to show output as json
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{65}: rebase (start): checkout branch2
+6972e7e HEAD@{66}: checkout: moving from branch2 to branch3
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{67}: rebase (finish): returning to refs/heads/branch2
+e1bb80e (origin/branch2, new_branch2, branch2) HEAD@{68}: rebase (squash): add welcome message and show most occuring digit in math facts
+e872f7e HEAD@{69}: rebase (pick): add welcome message
+a448b49 HEAD@{70}: rebase (squash): add more math related facts
+267d041 HEAD@{71}: rebase (pick): add product of birth year, month, and date to math facts
+0f3a21c HEAD@{72}: rebase (squash): show prime number in birthday components as math fact
+7b4fc25 HEAD@{73}: rebase (start): checkout HEAD~6
+a54149a HEAD@{74}: rebase (finish): returning to refs/heads/branch2
+a54149a HEAD@{75}: rebase (pick): show most occuring digit in birthdate as math fact
+37b6085 HEAD@{76}: rebase (pick): add welcome message
+14d2e89 HEAD@{77}: rebase (pick): add gcd and lcm of birthdate components as math fact
+2478128 HEAD@{78}: rebase (pick): add product of birth year, month, and date to math facts
+5d9748b HEAD@{79}: rebase (pick): show sum of birthdate components as math fact
+7b4fc25 HEAD@{80}: rebase (pick): show prime number in birthday components as math fact
+f51ce3a (origin/new_branch1, origin/branch1, new_branch1, branch1) HEAD@{81}: rebase (start): checkout branch1
+80f7389 HEAD@{82}: checkout: moving from branch1 to branch2
+f51ce3a (origin/new_branch1, origin/branch1, new_branch1, branch1) HEAD@{83}: rebase (finish): returning to refs/heads/branch1
+f51ce3a (origin/new_branch1, origin/branch1, new_branch1, branch1) HEAD@{84}: rebase (pick): refactor simple facts into a separate function
+4ec0982 HEAD@{85}: rebase (squash): feat: show basic facts about birthday
+d8d2cc0 HEAD@{86}: rebase (squash): # This is a combination of 2 commits.
+49d3c5d HEAD@{87}: rebase (pick): feat: show basic facts about birthday
+9bf107b HEAD@{88}: rebase (squash): create base for cli tool
+47c7895 HEAD@{89}: rebase (squash): # This is a combination of 2 commits.
+1d62fc0 HEAD@{90}: rebase (start): checkout HEAD~7
+08815cb (origin/original_branch1, original_branch1) HEAD@{91}: checkout: moving from branch3 to branch1
+6972e7e HEAD@{92}: commit: Update README.md
+bedcb47 HEAD@{93}: commit (amend): add option to export facts to a json file
+6f549cc HEAD@{94}: reset: moving to 6f549cc88cfde89920ff29ec2bb20d051bca387b
+9a35542 HEAD@{95}: commit: Update README.md
+6f549cc HEAD@{96}: commit: add option to export facts to a json file
+edea362 HEAD@{97}: commit (amend): feat: display a random fact
+f9f493b HEAD@{98}: commit: feat: display a random fact at the end
+bee923a HEAD@{99}: commit: feat: show birth month facts
+ac7c364 HEAD@{100}: rebase (finish): returning to refs/heads/branch3
+ac7c364 HEAD@{101}: rebase (pick): add colored text to heading messages
+4ca75cf HEAD@{102}: rebase (pick): add cli argument to show output as json
+80f7389 HEAD@{103}: rebase (start): checkout branch2
+5ba5384 HEAD@{104}: checkout: moving from branch2 to branch3
+80f7389 HEAD@{105}: rebase (finish): returning to refs/heads/branch2
+80f7389 HEAD@{106}: rebase (fixup): show most occuring digit in birthdate as math fact
+ed5a193 HEAD@{107}: rebase (start): checkout HEAD~3
+5846b20 HEAD@{108}: commit: fixup! show most occuring digit in birthdate as math fact
+ed5a193 HEAD@{109}: checkout: moving from branch3 to branch2
+5ba5384 HEAD@{110}: commit: add colored text to heading messages
+e375094 HEAD@{111}: commit: add cli argument to show output as json
+ed5a193 HEAD@{112}: checkout: moving from branch2 to branch3
+ed5a193 HEAD@{113}: commit: show most occuring digit in birthdate as math fact
+d04bae8 HEAD@{114}: commit: add welcome message
+2760894 HEAD@{115}: commit (amend): add gcd and lcm of birthdate components as math fact
+a11f585 HEAD@{116}: commit: add gcd and lcm of birthdate components as math fact
+0fe9ced HEAD@{117}: commit (amend): add product of birth year, month, and date to math facts
+098d06c HEAD@{118}: commit (amend): add product of birth year, month, and date to math facts
+68e63ad HEAD@{119}: commit (amend): add product of birth year, month, and date to math facts
+1d17d27 HEAD@{120}: commit: add product of birth year, month, and date to math facts
+b9d424d HEAD@{121}: commit (amend): show sum of birthdate components as math fact
+3294f40 HEAD@{122}: commit (amend): show sum of digits as math fact
+b3139f4 HEAD@{123}: commit: show sum of digits as math fact
+77b9f03 HEAD@{124}: commit: show prime number in birthday components as math fact
+08815cb (origin/original_branch1, original_branch1) HEAD@{125}: checkout: moving from branch1 to branch2
+08815cb (origin/original_branch1, original_branch1) HEAD@{126}: commit (amend): refactor simple facts into a separate function
+d252f48 HEAD@{127}: commit: refactor simple facts into a separate function
+427b19f HEAD@{128}: commit: handle future dates while parsing birthdays
+dfd2e65 HEAD@{129}: commit: add date until next birthday fact
+2b9f956 HEAD@{130}: commit: add leap years count in facts
+741aed9 HEAD@{131}: commit (amend): feat: show basic facts about birthday
+6943f5c HEAD@{132}: commit: feat: show basic facts about birthday
+7b845ea HEAD@{133}: commit: add input validation and set types for ide type-hinting
+1d62fc0 HEAD@{134}: commit (amend): initiate cli tool and update readme
+924ee0d HEAD@{135}: commit: initiate cli tool and update readme
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{136}: reset: moving to HEAD~
+cadfbea HEAD@{137}: commit: initiate cli tool and update readme
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{138}: checkout: moving from main to branch1
+7da7914 (origin/main, origin/HEAD, main, branch-to-delete) HEAD@{139}: clone: from https://github.com/fnvir-craftsmen/git-task2.git
